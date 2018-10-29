@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/y-akamatsu/AkamatsuTrivialQuiz-API/issues"
   },
-  "homepage": "https://github.com/y-akamatsu/AkamatsuTrivialQuiz-API#readme"
+  "homepage": "https://github.com/y-akamatsu/AkamatsuTrivialQuiz-API#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
 }
