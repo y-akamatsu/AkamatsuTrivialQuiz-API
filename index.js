@@ -9,7 +9,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/quiz", function(req, res){
-  res.render("quiz.ejs");
+  res.render("quiz");
 
 });
 app.listen(3000, function(){
