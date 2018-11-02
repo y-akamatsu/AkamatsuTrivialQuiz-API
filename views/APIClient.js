@@ -1,13 +1,9 @@
 class APIClient {
-
-}
-
-fetch('https://opentdb.com/api.php?amount=10&')
-.then(function (response) {
-  return response.json();
-})
-.then(function (json) {
-  console.log('data:', json);
-});
+  static fetch(url){
+    return this.fetch(url)
+    .then(response => {
+      return response.json();
+    });   
+  }
 
 module.exports = APIClient;
