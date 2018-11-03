@@ -4,6 +4,7 @@ class APIClient {
       .then(response => {
         return response.json();
       });
-  };
- 
+  }
+};
+
 module.exports = APIClient;
