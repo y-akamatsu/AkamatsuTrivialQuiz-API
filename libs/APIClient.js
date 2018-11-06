@@ -1,6 +1,6 @@
 class APIClient {
   static fetch(url) {
-    return this.fetch(url)
+    return fetch(url)
       .then(response => {
         return response.json();
       });
