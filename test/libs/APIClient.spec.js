@@ -6,8 +6,9 @@ describe('APIClientクラスのテスト', () => {
     return APIClient
       .fetch('https://opentdb.com/api.php?amount=10')
       .then(json => {
-        Array.isArray(json.results);
-        assert.equal(json.results.count, 10);
+
+        assert(json.results, Array.isArray, true);
+        assert.equal(json.results.length, 10);
       });
   });
 });
