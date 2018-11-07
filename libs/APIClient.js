@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 class APIClient {
   static fetch(url) {
     return fetch(url)
