@@ -13,23 +13,23 @@ describe('Quizクラスのテスト', () => {
     assert.equal(quiz.type, 'type', 'プロパティの値が違います。');
   });
 
-  it('difficultyはstring型であり値はdifficultyである', () => {
+  it('difficultyはstring型で値はdifficultyである', () => {
     assert.equal(typeof quiz.difficulty, 'string');
     assert.equal(quiz.difficulty, 'difficulty', 'プロパティの値が違います。');
 
   });
 
-  it('questionはstring型であり値はquestionである', () => {
+  it('questionはstring型で値はquestionである', () => {
     assert.equal(typeof quiz.question, 'string');
     assert.equal(quiz.question, 'question', 'プロパティの値が違います。');
   });
 
-  it('correctAnswerはstring型であり値はcorrectAnswerである', () => {
+  it('correctAnswerはstring型で値はcorrectAnswerである', () => {
     assert.equal(typeof quiz.correctAnswer, 'string');
     assert.equal(quiz.correctAnswer, 'correctAnswer', 'プロパティの値が違います。');
   });
 
-  it('incorrectAnswersはオブジェクト型であり値は配列である', () => {
+  it('incorrectAnswersはオブジェクト型で値は配列である', () => {
     assert.equal(Array.isArray(quiz.incorrectAnswers), true);
     assert.deepStrictEqual(quiz.incorrectAnswers, [0, 1, 2]);
   });
