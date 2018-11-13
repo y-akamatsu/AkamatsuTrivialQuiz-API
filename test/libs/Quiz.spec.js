@@ -3,45 +3,34 @@ const Quiz = require('../../libs/Quiz');
 
 const quiz = new Quiz('category', 'type', 'difficulty', 'question', 'correctAnswer', [0, 1, 2]);
 describe('Quizクラスのテスト', () => {
-  it('categoryはプリミティブ型である', () => {
+  it('categoryはstring型で値はcategoryである', () => {
     assert.equal(typeof quiz.category, 'string');
-  });
-  it('プロパティの値はcategoryである', () => {
-    assert.equal(quiz.category, 'category', true);
+    assert.equal(quiz.category, 'category', 'プロパティの値が違います。');
   });
 
-  it('typeはプリミティブ型である', () => {
+  it('typeはstring型で値はtypeである', () => {
     assert.equal(typeof quiz.type, 'string');
-  });
-  it('プロパティの値はtypeである', () => {
-    assert.equal(quiz.type, 'type', true);
+    assert.equal(quiz.type, 'type', 'プロパティの値が違います。');
   });
 
-  it('difficultyはプリミティブ型である', () => {
+  it('difficultyはstring型であり値はdifficultyである', () => {
     assert.equal(typeof quiz.difficulty, 'string');
-  });
-  it('プロパティの値はdifficultyである', () => {
-    assert.equal(quiz.difficulty, 'difficulty', true);
+    assert.equal(quiz.difficulty, 'difficulty', 'プロパティの値が違います。');
+
   });
 
-  it('questionはプリミティブ型である', () => {
+  it('questionはstring型であり値はquestionである', () => {
     assert.equal(typeof quiz.question, 'string');
-  });
-  it('プロパティの値はquestionである', () => {
-    assert.equal(quiz.question, 'question', true);
+    assert.equal(quiz.question, 'question', 'プロパティの値が違います。');
   });
 
-  it('correctAnswerはプリミティブ型である', () => {
+  it('correctAnswerはstring型であり値はcorrectAnswerである', () => {
     assert.equal(typeof quiz.correctAnswer, 'string');
-  });
-  it('プロパティの値はcorrectAnswerである', () => {
-    assert.equal(quiz.correctAnswer, 'correctAnswer', true);
+    assert.equal(quiz.correctAnswer, 'correctAnswer', 'プロパティの値が違います。');
   });
 
-  it('incorrectAnswersはオブジェクト型である', () => {
+  it('incorrectAnswersはオブジェクト型であり値は配列である', () => {
     assert.equal(Array.isArray(quiz.incorrectAnswers), true);
-  });
-  it('プロパティの値はincorrectAnswersである', () => {
-    assert.deepStrictEqual(quiz.incorrectAnswers, [0, 1, 2], true);
+    assert.deepStrictEqual(quiz.incorrectAnswers, [0, 1, 2]);
   });
 });
