@@ -6,7 +6,7 @@ class Quiz{
   this.type = type;
   this.difficulty = difficulty;
   this.question = question;
-  this.correctAnsewr = correctAnswer;
+  this.correctAnswer = correctAnswer;
   this.incorrectAnswers = incorrectAnswers;
   }
 }
