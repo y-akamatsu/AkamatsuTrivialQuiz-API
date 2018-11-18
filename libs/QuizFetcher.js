@@ -1,25 +1,17 @@
 const APIClient = require('../../libs/APIClient');
 const Quiz = require('../../libs/Quiz');
 
-class QuizFetcher {
+class quizFetcher {
   static fetch() {
     // 1. APIClient.fetchで問題データ取得
     APIClient.fetch('https://opentdb.com/api.php?amount=10')
-      .then(json => {
+      .then(response => {
+        return response.json();
         // `APIClient.spec.js`のテスト内容より `json.results` がクイズデータになる
-        return json.results;
+        // json.resultsのデータを使ってQuizクラスのインスタンス生成
+        const quiz = new Quiz('category', 'type', 'difficulty', 'question', 'correctAnswer', [0, 1, 2]);
       });
-    // json.resultsのデータを使ってQuizクラスのインスタンス生成
     // (json.resultsは複数あるので、ここで複数のQuizクラスのインスタンスを生成)
-    // return Quizインスタンスの配列とすることで、呼び出し元はPromiseオブジェクトのthen経由でQuizインスタンスの配列を取得でき
-    Quiz(json.results){
-      return [this.category,
-      this.type,
-      this.difficulty,
-      this.question,
-      this.correctAnswer,
-      this.incorrectAnswers];
-    };
   }
 };
 
@@ -28,4 +20,4 @@ class QuizFetcher {
 
 
 
-module.exports = QuizFetcher;
+module.exports = quizFetcher;
