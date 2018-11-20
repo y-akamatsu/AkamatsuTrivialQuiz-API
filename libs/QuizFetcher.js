@@ -1,5 +1,5 @@
 const APIClient = require('./APIClient');
-const Quiz = require('./Quiz');
+const Quiz = require('./QUiz');
 
 class QuizFetcher {
   static fetch() {
@@ -9,6 +9,7 @@ class QuizFetcher {
       .then(response => {
         //コールバック関数の引数のresponseオブジェクトでresultsの配列を受け取る
         //変数resultsにresponse.resultsを代入
+        //代入する理由 => 受け取ったデータを変数に代入することでクロージャしている為
         const results = response.results;
         // 2. 1で取得した問題データを使ってQuizクラスのインスタンス生成
         //quizInstanceListという空の配列を作成
@@ -24,10 +25,12 @@ class QuizFetcher {
             quizData.incorrectAnswers
           );
           // 3. 2で生成されるQuizクラスのインスタンスは複数(おそらく10個)あるので、それを１つの配列に格納する。
-          //quizInstanceListの配列の要素に対して新たな配列を生成して戻り値を返す
-          quizInstanceList.map(quiz);
+          //.map()を使用したメソッドの使い方が掴めませんでした。
+          //quizInstanceListにquizインスタンスを１つ以上格納する
+          quizInstanceList.push(quiz);
         });
         // 4. 3で作ったQuizインスタンスが格納されている配列を呼び出し元に返す
+        //QuizFetcher()を実行したら quizInstanceListの配列のクイズデータが取得できる
         return quizInstanceList;
       });
   }

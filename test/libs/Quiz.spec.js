@@ -1,5 +1,5 @@
 const assert = require('power-assert');
-const Quiz = require('../../libs/Quiz');
+const Quiz = require('../../libs/QUiz');
 
 const quiz = new Quiz('category', 'type', 'difficulty', 'question', 'correctAnswer', [0, 1, 2]);
 describe('Quizクラスのテスト', () => {
