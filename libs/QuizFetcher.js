@@ -24,7 +24,6 @@ class QuizFetcher {
             quizData.incorrectAnswers
           );
           // 3. 2で生成されるQuizクラスのインスタンスは複数(おそらく10個)あるので、それを１つの配列に格納する。
-         quizInstanceList = results.map(quiz * 10);
         });
         // 4. 3で作ったQuizインスタンスが格納されている配列を呼び出し元に返す
         return quizInstanceList;
