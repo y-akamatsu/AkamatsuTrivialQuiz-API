@@ -11,24 +11,25 @@ class QuizFetcher {
         //変数resultsにresponse.resultsを代入
         const results = response.results;
         // 2. 1で取得した問題データを使ってQuizクラスのインスタンス生成
-        //quizInstanceListという空の配列を作成
-        const quizInstanceList = [];
-        //forEachでresultsの配列から1つづつ値を取得しコールバック関数の引数のquizDataに代入する
-        results.forEach(quizData => {
+      　// 3.resultsのデータをコールバック関数のquizDataでQuizクラスのインスタに渡し.map()で新しい配列を作る
+        const quizInstanceListMap = results.map(quizData => {
           const quiz = new Quiz(
             quizData.category,
             quizData.type,
             quizData.difficulty,
             quizData.question,
-            quizData.correctAnswer,
-            quizData.incorrectAnswers
-          );
-          // 3. 2で生成されるQuizクラスのインスタンスは複数(おそらく10個)あるので、それを１つの配列に格納する。
+            quizData.correct_answer,
+            quizData.incorrect_answers
+          )
+          return quiz;
         });
         // 4. 3で作ったQuizインスタンスが格納されている配列を呼び出し元に返す
-        return quizInstanceList;
+        return quizInstanceListMap;
       });
   }
 };
-
 module.exports = QuizFetcher;
+
+// QuizFetcher.fetch().then(function (quizInstanceListMap) {
+//   console.log(quizInstanceListMap);
+// });
