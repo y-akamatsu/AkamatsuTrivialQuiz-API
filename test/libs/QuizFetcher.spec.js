@@ -11,7 +11,8 @@ describe('QuizFetcherクラスのテスト', () => {
       .then(quizInstanceListMap => {
         // 3. 2で取得した値の内容がQuizインスタンスの配列であるかどうか確認する。
         assert.equal(Array.isArray(quizInstanceListMap), true);
+        // 4. 各Quizインスタンスのプロパティに値が入っていることを確認する
+        assert.equal((quiz), quizInstanceListMap);
       });
   });
-  // 4. 各Quizインスタンスのプロパティに値が入っていることを確認する
 });
