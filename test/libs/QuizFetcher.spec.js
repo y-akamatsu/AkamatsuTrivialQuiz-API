@@ -11,8 +11,13 @@ describe('QuizFetcherクラスのテスト', () => {
         // 3. 2で取得した値の内容がQuizインスタンスの配列であるかどうか確認する。
         assert.equal(Array.isArray(quizInstanceListMap), true);
         // 4. 各Quizインスタンスのプロパティに値が入っていることを確認する。
-        quizInstanceListMap.forEach(function(quiz) {
-          console.log(quiz);
+        quizInstanceListMap.forEach(function (quizData) {
+          assert.equal(quizData.category, 'category');          
+          assert.equal(quizData.type, 'type');          
+          assert.equal(quizData.difficulty, 'difficulty');
+          assert.equal(quizData.question, 'question');
+          assert.equal(quizData.correctAnswer, 'correctAnswer');
+          assert.equal(quizData.incorrectAnswers, [1, 2, 3]);
         });
       });
   });
