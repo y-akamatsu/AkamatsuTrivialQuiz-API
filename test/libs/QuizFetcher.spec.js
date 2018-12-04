@@ -12,12 +12,13 @@ describe('QuizFetcherクラスのテスト', () => {
         assert.equal(Array.isArray(quizInstanceListMap), true);
         // 4. 各Quizインスタンスのプロパティに値が入っていることを確認する。
         quizInstanceListMap.forEach(function (quizData) {
-          assert.equal(quizData.category, 'category');          
-          assert.equal(quizData.type, 'type');          
-          assert.equal(quizData.difficulty, 'difficulty');
-          assert.equal(quizData.question, 'question');
-          assert.equal(quizData.correctAnswer, 'correctAnswer');
-          assert.equal(quizData.incorrectAnswers, [1, 2, 3]);
+          assert.equal(typeof quizData.category, 'string', 'プロパティに値が入っていません');
+          assert.equal(typeof quizData.type, 'string', 'プロパティに値が入っていません');
+          assert.equal(typeof quizData.difficulty, 'string', 'プロパティに値が入っていません');
+          assert.equal(typeof quizData.question, 'string', 'プロパティに値が入っていません');
+          assert.equal(typeof quizData.correctAnswer, 'string', 'プロパティに値が入っていません');
+          assert.equal(typeof quizData.incorrectAnswers, 'object', 'プロパティに値が入っていません');
+          assert.equal(quizData.incorrectAnswers.length, quizData.incorrectAnswers.length > 0);
         });
       });
   });
