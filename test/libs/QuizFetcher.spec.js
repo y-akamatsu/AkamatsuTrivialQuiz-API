@@ -17,8 +17,8 @@ describe('QuizFetcherクラスのテスト', () => {
           assert.equal(typeof quizData.difficulty, 'string', 'プロパティに値が入っていません');
           assert.equal(typeof quizData.question, 'string', 'プロパティに値が入っていません');
           assert.equal(typeof quizData.correctAnswer, 'string', 'プロパティに値が入っていません');
-          assert.equal(typeof quizData.incorrectAnswers, 'object', 'プロパティに値が入っていません');
-          assert.equal(quizData.incorrectAnswers.length, quizData.incorrectAnswers.length > 0);
+          assert.equal(Array.isArray(quizData.incorrectAnswers), true, 'プロパティに値が入っていません');
+          assert.equal(quizData.incorrectAnswers.length > 0, false, '配列に値が一つも入っていません');
         });
       });
   });
