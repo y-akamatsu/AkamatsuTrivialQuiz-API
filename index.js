@@ -9,7 +9,9 @@ app.get("/", function(req, res){
 });
 
 app.get("/quiz", function(req, res){
-  res.render("quiz");
+  const quizInstance = req.quizFetcher;
+  res.render("quiz", { quizInstance });
+
 
 });
 app.listen(3000, function(){
