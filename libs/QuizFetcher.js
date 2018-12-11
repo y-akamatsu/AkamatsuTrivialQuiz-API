@@ -29,3 +29,7 @@ class QuizFetcher {
   }
 };
 module.exports = QuizFetcher;
+
+QuizFetcher.fetch().then(function(quizInstanceListMap) {
+  console.log(quizInstanceListMap);
+});
