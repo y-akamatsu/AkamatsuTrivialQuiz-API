@@ -1,5 +1,5 @@
 const APIClient = require('./APIClient');
-const Quiz = require('./QUiz');
+const Quiz = require('./Quiz');
 
 class QuizFetcher {
   static fetch() {
