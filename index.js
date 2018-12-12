@@ -11,16 +11,10 @@ app.get("/", function (req, res) {
 
 app.get("/quiz", function (req, res) {
   QuizFetcher
-    .fetch(quizInstances => {
-      quizInstances.forEach(function (quizInstance) {
-        quizInstance.category,
-        quizInstance.type,
-        quizInstance.difficulty,
-        quizInstance.question,
-        quizInstance.correctAnswer,
-        quizInstance.incorrectAnswers
-      });
-      res.render("./quiz.ejs", quizInstances);
+    .fetch()
+    .then(quizInstances => {
+      // 引数のquizInstancesをejsにわたす
+
     });
 });
 app.listen(3000, function () {
