@@ -1,8 +1,8 @@
 <% include partials/header %>
 <div class="container">
-  <div id="mondai"><%= quizData.question %></div>
+  <div id="mondai"><%= new QuizFetcher() %></div>
   <div id="question_number"></div>
-  <ul id="answers"><%= quizData.correct_answer %><%= quizData.incorrectAnswers %>
+  <ul id="answers">
   </ul>
   <div id="result"></div>
   <div class="button">

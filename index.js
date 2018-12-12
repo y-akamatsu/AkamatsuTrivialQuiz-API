@@ -10,13 +10,8 @@ app.get("/", function(req, res){
 });
 
 app.get("/quiz", function(req, res){
-  res.render("quiz", QuizFetcher.fetch().then(quizInstanceListMap => {
-    quizInstanceListMap.forEach(function(quizData){
-      quizData.question, 
-      quizData.correctAnswer, 
-      quizData.incorrectAnswers
-    });
-  }));
+   return QuizFetcher.fetch()
+  res.render('quiz',);
 });
 app.listen(3000, function(){
     console.log("Server has started!");
