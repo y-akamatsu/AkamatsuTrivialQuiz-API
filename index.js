@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const QuizFetcher = require('./libs/QuizFetcher.js');
+const QuizFetcher = require('./libs/QuizFetcher');
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -10,8 +10,8 @@ app.get("/", function(req, res){
 });
 
 app.get("/quiz", function(req, res){
-   return QuizFetcher.fetch()
-  res.render('quiz',);
+  const quizInstance = new QuizFetcher();
+  res.render('quiz', { quizInstance });
 });
 app.listen(3000, function(){
     console.log("Server has started!");
