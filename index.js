@@ -12,9 +12,9 @@ app.get("/", function (req, res) {
 app.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
-    .then(quizInstances => {
+    .then(quizInstanceListMap => {
       // 引数のquizInstancesをejsにわたす
-
+      res.render("quiz", { quizInstanceListMap });
     });
 });
 app.listen(3000, function () {
