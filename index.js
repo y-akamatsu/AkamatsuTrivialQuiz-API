@@ -14,7 +14,9 @@ app.get("/quiz", function (req, res) {
     .fetch()
     .then(quizInstances => {
       // 引数のquizInstancesをejsにわたす
-      res.render("quiz", { quizInstances});
+      // インスタンスのデータがうまくejsに渡されていない
+      res.render("quiz", { quizInstances });
+
     });
 });
 app.listen(3000, function () {
