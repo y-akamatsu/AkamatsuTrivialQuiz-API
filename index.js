@@ -13,10 +13,7 @@ app.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstances => {
-      // 引数のquizInstancesをejsにわたす
-      // インスタンスのデータがうまくejsに渡されていない
-      res.render("quiz", { quizInstances });
-      console.log(quizInstances);
+      res.render("quiz", {quizInstances});
     });
 });
 
