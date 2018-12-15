@@ -16,9 +16,10 @@ app.get("/quiz", function (req, res) {
       // 引数のquizInstancesをejsにわたす
       // インスタンスのデータがうまくejsに渡されていない
       res.render("quiz", { quizInstances });
-
+      console.log(quizInstances);
     });
 });
+
 app.listen(3000, function () {
   console.log("Server has started!");
 });
