@@ -6,7 +6,6 @@
   <title>Trivial Quiz</title>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <script>
-    // ここにindex.jsから渡したデータを変数に代入 
-  window.Express = <%= quizInstances: category %>
+    window.Express = <%- JSON.stringify(quizInstances) %> 
   </script>
 </head>

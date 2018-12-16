@@ -13,9 +13,10 @@ app.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstances => {
-      res.render("/views/header", { quizInstances }); 
+      res.render("quiz", { quizInstances }); 
     });
 });
+
 app.listen(3000, function () {
   console.log("Server has started!");
 });
