@@ -6,14 +6,14 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
-  res.render("index");
+      res.render("index");
 });
 
 app.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstances => {
-      res.render("quiz", { quizInstances }); 
+      res.render("quiz", { quizInstances });
     });
 });
 
