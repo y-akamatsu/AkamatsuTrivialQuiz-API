@@ -1,4 +1,3 @@
-const quizFetcher = require("../../libs/QuizFetcher");
 const questionElement = document.getElementById("mondai");
 const answersElement = document.getElementById("answers");
 const resultAnswer = document.getElementById("result");
