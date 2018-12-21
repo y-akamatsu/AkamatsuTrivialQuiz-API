@@ -1,4 +1,3 @@
-const QuizFetcher = require('./QuizFetcher');
 const questionElement = document.getElementById("mondai");
 const answersElement = document.getElementById('answers');
 const resultAnswer = document.getElementById("result");
@@ -107,3 +106,5 @@ resetButton.addEventListener('click', resetQuestion);
 window.addEventListener('load', () => {
   resetQuestion();
 });
+
+
