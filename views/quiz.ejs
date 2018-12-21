@@ -10,8 +10,10 @@
     <a id="toppage" class="btn_d" href="/">Top page</a><br>
   </div>
 </div>
-<script src="js/main.js">
-  window.Express = <%- JSON.stringify(quizInstances) %>
+<script>
+  window.Express = {
+    quizInsatnces: <%- JSON.stringify(quizInstances) %>
+  }
 </script>
 <script src="js/main.js"></script>
 <% include partials/footer %>
