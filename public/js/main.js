@@ -12,16 +12,16 @@ let numCorrect = 0;
 //fecthのresultsの値を格納する（問題リストがはいる）
 let results = window.Express.quizInstances;
 function setQuestion() {
-  if (results <= 10) {
+  if (results <= 11) {
     alert('check the answers');
     resultQuestion();
     return;
   }
   const questionData = results;
   const answers = [];
-  answers.push(questionData.correct_answer);
-  questionData.incorrect_answers.forEach(incorrect_answer => {
-    answers.push(incorrect_answer);
+  answers.push(questionData.correctAnswer);
+  questionData.incorrectAnswers.forEach(incorrectAnswer => {
+    answers.push(incorrectAnswer);
   });
   //innerTextは中身を書き換える
   //innerTextだと「""」や「''」が変な文字に変換されるためinnerHTMLを使うようにした
