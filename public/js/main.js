@@ -1,3 +1,4 @@
+const quizInstances = window.Express;
 const questionElement = document.getElementById("mondai");
 const answersElement = document.getElementById("answers");
 const resultAnswer = document.getElementById("result");
@@ -11,9 +12,9 @@ const questionNumber = document.getElementById("question_number");
 let currentQuestionIndex = 0;
 let numCorrect = 0;
 //fecthのresultsの値を格納する（問題リストがはいる）
-let results = [];
+let results = window.Express.quizInstances;
 function setQuestion() {
-  if (results.length <= currentQuestionIndex) {
+  if (results <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
@@ -81,19 +82,7 @@ function selectAnswer(event) {
 //resetQuestion関数定義
 //fetchにてデータを取得し問題をセット、クイズのインデックス番号を０にする
 function resetQuestion() {
-  fetch('https://opentdb.com/api.php?amount=10&category=15')
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (json) {
-      console.log('data:', json);
-      currentQuestionIndex = 0;
-      numCorrect = 0;
-      resultAnswer.innerHTML = "";
-      results = json.results;
-      resetButton.style.display = "none";
-      setQuestion();
-    });
+  setQuestion();
 }
 
 function resultQuestion() {
