@@ -1,4 +1,3 @@
-const quizInstances = window.Express;
 const questionElement = document.getElementById("mondai");
 const answersElement = document.getElementById("answers");
 const resultAnswer = document.getElementById("result");
@@ -9,17 +8,16 @@ const questionNumber = document.getElementById("question_number");
 //変数constは再代入不可、基本的にcosntを使用。letは再代入可能
 //次の問題を選択するときは＋１する
 //1件目のデータを問題に使う
-let currentQuestionIndex = 0;
 let numCorrect = 0;
 //fecthのresultsの値を格納する（問題リストがはいる）
 let results = window.Express.quizInstances;
 function setQuestion() {
-  if (results <= currentQuestionIndex) {
+  if (results <= 10) {
     alert('check the answers');
     resultQuestion();
     return;
   }
-  const questionData = results[currentQuestionIndex];
+  const questionData = results;
   const answers = [];
   answers.push(questionData.correct_answer);
   questionData.incorrect_answers.forEach(incorrect_answer => {
