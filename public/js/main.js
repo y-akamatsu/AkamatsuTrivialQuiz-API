@@ -7,14 +7,13 @@ const questionNumber = document.getElementById("question_number");
 
 let currentQuestionIndex = 0;
 let numCorrect = 0;
-let results = [];
 function setQuestion() {
-  if (results.length <= currentQuestionIndex) {
+  if (window.Express.quizInstances.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
   }
-  const questionData = results[currentQuestionIndex];
+  const questionData = window.Express.quizInstances[currentQuestionIndex];
   const answers = [];
   answers.push(questionData.correctAnswer);
   questionData.incorrectAnswers.forEach(incorrectAnswer => {
@@ -48,7 +47,7 @@ function arrShuffle(answers) {
 
 function selectAnswer(event) {
   const answer = event.target.innerText;
-  const questionData = results[currentQuestionIndex];
+  const questionData = window.Express.quizInstances[currentQuestionIndex];
   if (answer === questionData.correctAnswer) {
     numCorrect++;
     alert('correct!');
@@ -63,13 +62,12 @@ function resetQuestion() {
   currentQuestionIndex = 0;
   numCorrect = 0;
   resultAnswer.innerHTML = "";
-  results = window.Express.quizInstances;
   resetButton.style.display = "none";
   setQuestion();
 }
 
 function resultQuestion() {
-  resultAnswer.innerHTML = `you had ${numCorrect} correct answers of ${results.length} questions`;
+  resultAnswer.innerHTML = `you had ${numCorrect} correct answers of ${window.Express.quizInstances.length} questions`;
   resetButton.style.display = "block";
 }
 
