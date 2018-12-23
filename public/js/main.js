@@ -5,27 +5,21 @@ const resetButton = document.getElementById("reset");
 resetButton.style.display = "none";
 const questionNumber = document.getElementById("question_number");
 
-//変数constは再代入不可、基本的にcosntを使用。letは再代入可能
-//次の問題を選択するときは＋１する
-//1件目のデータを問題に使う
 let numCorrect = 0;
-//fecthのresultsの値を格納する（問題リストがはいる）
-let results = window.Express.quizInstances;
 function setQuestion() {
-  if (results <= 11) {
+  if (window.Express.quizInstances <= 11) {
     alert('check the answers');
     resultQuestion();
     return;
   }
-  const questionData = results;
+  const questionData = window.Express.quizInstances;
   const answers = [];
   answers.push(questionData.correctAnswer);
   questionData.incorrectAnswers.forEach(incorrectAnswer => {
     answers.push(incorrectAnswer);
   });
-  //innerTextは中身を書き換える
-  //innerTextだと「""」や「''」が変な文字に変換されるためinnerHTMLを使うようにした
-  questionElement.innerHTML = questionData.question;
+ 
+  questionElement.innerHTML = question;
   answersElement.innerHTML = ''
   arrShuffle(answers).forEach(answer => {
     const liElement = document.createElement('li');
