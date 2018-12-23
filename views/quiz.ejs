@@ -1,6 +1,6 @@
 <% include partials/header %>
 <div class="container">
-  <div id="mondai"></div>
+  <div id="mondai">Now loading...</div>
   <div id="question_number"></div>
   <ul id="answers">
   </ul>
@@ -11,6 +11,9 @@
   </div>
 </div>
 <script>
-  window.Express = <%- JSON.stringify(quizInstances) %>
+  window.Express = {
+    quizInstances: <%- JSON.stringify(quizInstances) %>
+  };
 </script>
+<script src="js/main.js"></script>
 <% include partials/footer %>
