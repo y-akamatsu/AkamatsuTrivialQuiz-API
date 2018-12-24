@@ -8,7 +8,7 @@ const questionNumber = document.getElementById("question_number");
 let currentQuestionIndex = 0;
 let numCorrect = 0;
 function setQuestion() {
-  if (quizInstances.length <= currentQuestionIndex) {
+  if (results.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
@@ -67,10 +67,6 @@ function resetQuestion() {
     .then(res => res.json())
     .then(quizInstances => {
       setQuestion(quizInstances);
-    })
-    .catch((error) => {
-      console.log('クイズデータの取得に失敗しました：', error);
-      alert('エラーが発生しました');
     });
 }
 

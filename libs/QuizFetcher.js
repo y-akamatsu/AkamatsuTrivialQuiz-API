@@ -6,9 +6,9 @@ class QuizFetcher {
     // 1. APIClient.fetchで問題データ取得
     return APIClient
       .fetch('https://opentdb.com/api.php?amount=10')
-      .then(response => response.json())
-      .then(quizElement => {
-        const quizInstanceListMap = quizElement.results.map(quizData => {
+      .then(response => {
+        const results = response.results
+        const quizInstanceListMap = results.map(quizData => {
           const quiz = new Quiz(
             quizData.category,
             quizData.type,
