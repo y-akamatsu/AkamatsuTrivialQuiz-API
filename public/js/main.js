@@ -8,7 +8,7 @@ const questionNumber = document.getElementById("question_number");
 let currentQuestionIndex = 0;
 let numCorrect = 0;
 function setQuestion() {
-  if (window.Express.quizInstances.length <= currentQuestionIndex) {
+  if (quizInstances.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
@@ -63,7 +63,15 @@ function resetQuestion() {
   numCorrect = 0;
   resultAnswer.innerHTML = "";
   resetButton.style.display = "none";
-  setQuestion();
+  fetch('http://localhost:3000/quiz')
+    .then(res => res.json())
+    .then(quizInstances => {
+      setQuestion(quizInstances);
+    })
+    .catch((error) => {
+      console.log('クイズデータの取得に失敗しました：', error);
+      alert('エラーが発生しました');
+    });
 }
 
 function resultQuestion() {

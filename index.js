@@ -13,7 +13,7 @@ app.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstances => {
-      res.render("quiz", { quizInstances });
+      res.json(quizInstances);
     });
 });
 
