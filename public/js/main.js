@@ -7,8 +7,9 @@ const questionNumber = document.getElementById("question_number");
 
 let currentQuestionIndex = 0;
 let numCorrect = 0;
+let results = [];
 function setQuestion() {
-  if (quizInstanceListMap.length <= currentQuestionIndex) {
+  if (results.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
@@ -58,23 +59,22 @@ function selectAnswer(event) {
 }
 
 function resetQuestion() {
-  currentQuestionIndex = 0;
-  numCorrect = 0;
-  resultAnswer.innerHTML = "";
-  resetButton.style.display = "none";
   fetch('http://localhost:3000/api/quiz')
-    .then(res => res.json())
-    .then(quizInstanceListMap => {
-      setQuestion(quizInstanceListMap);
+    .then(function (response){
+      return response.json();
     })
-    .catch((error) => {
-      console.log('クイズデータの取得に失敗しました：', error);
-      alert('エラーが発生しました');
+    .then(function (json){
+      console.log('data:', json);
+      currentQuestionIndex = 0;
+      numCorrect = 0;
+      resultAnswer.innerHTML = "";
+      resetButton.style.display = "none";
+      setQuestion();
     });
 }
 
 function resultQuestion() {
-  resultAnswer.innerHTML = `you had ${numCorrect} correct answers of ${window.Express.quizInstances.length} questions`;
+  resultAnswer.innerHTML = `you had ${numCorrect} correct answers of ${results.length} questions`;
   resetButton.style.display = "block";
 }
 
