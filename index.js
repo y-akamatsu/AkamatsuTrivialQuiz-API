@@ -13,6 +13,15 @@ app.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstances => {
+      res.render("quiz", { quizInstances });
+    });
+});
+
+
+app.get("/api/quiz", function (req, res) {
+  QuizFetcher
+    .fetch()
+    .then(quizInstances => {
       res.json(quizInstances);
     });
 });

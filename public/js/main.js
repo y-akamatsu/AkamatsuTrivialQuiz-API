@@ -8,7 +8,7 @@ const questionNumber = document.getElementById("question_number");
 let currentQuestionIndex = 0;
 let numCorrect = 0;
 function setQuestion() {
-  if (results.length <= currentQuestionIndex) {
+  if (quizInstanceListMap.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
@@ -19,7 +19,6 @@ function setQuestion() {
   questionData.incorrectAnswers.forEach(incorrectAnswer => {
     answers.push(incorrectAnswer);
   });
-
   questionElement.innerHTML = questionData.question;
   answersElement.innerHTML = ''
   arrShuffle(answers).forEach(answer => {
@@ -63,10 +62,10 @@ function resetQuestion() {
   numCorrect = 0;
   resultAnswer.innerHTML = "";
   resetButton.style.display = "none";
-  fetch('http://localhost:3000/quiz')
+  fetch('http://localhost:3000/api/quiz')
     .then(res => res.json())
-    .then(quizInstances => {
-      setQuestion(quizInstances);
+    .then(quizInstanceListMap => {
+      setQuestion(quizInstanceListMap);
     })
     .catch((error) => {
       console.log('クイズデータの取得に失敗しました：', error);
