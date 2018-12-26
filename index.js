@@ -21,8 +21,8 @@ app.get("/quiz", function (req, res) {
 app.get("/api/quiz", function (req, res) {
   QuizFetcher
     .fetch()
-    .then(quizInstances => {
-      res.json(quizInstances);
+    .then(quizInstanceListMap => {
+      res.json(quizInstanceListMap);
     });
 });
 

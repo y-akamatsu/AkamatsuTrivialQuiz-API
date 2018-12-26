@@ -59,17 +59,15 @@ function selectAnswer(event) {
 }
 
 function resetQuestion() {
+  currentQuestionIndex = 0;
+  numCorrect = 0;
+  resultAnswer.innerHTML = "";
+  resetButton.style.display = "none";
   fetch('http://localhost:3000/api/quiz')
-    .then(function (response){
-      return response.json();
-    })
-    .then(function (json){
-      console.log('data:', json);
-      currentQuestionIndex = 0;
-      numCorrect = 0;
-      resultAnswer.innerHTML = "";
-      resetButton.style.display = "none";
-      setQuestion();
+    .then(res => res.json())
+    .then(quizInstanceListMap => {
+      setQuestion(quizInstanceListMap);
+      console.log(quizInstanceListMap);
     });
 }
 
