@@ -7,14 +7,13 @@ const questionNumber = document.getElementById("question_number");
 
 let currentQuestionIndex = 0;
 let numCorrect = 0;
-let results = [];
 function setQuestion() {
   if (results.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
   }
-  const questionData = window.Express.quizInstances[currentQuestionIndex];
+  const questionData = results[currentQuestionIndex];
   const answers = [];
   answers.push(questionData.correctAnswer);
   questionData.incorrectAnswers.forEach(incorrectAnswer => {
@@ -59,16 +58,17 @@ function selectAnswer(event) {
 }
 
 function resetQuestion() {
-  currentQuestionIndex = 0;
-  numCorrect = 0;
-  resultAnswer.innerHTML = "";
-  resetButton.style.display = "none";
   fetch('http://localhost:3000/api/quiz')
     .then(res => res.json())
-    .then(quizInstanceListMap => {
-      setQuestion(quizInstanceListMap);
-      console.log(quizInstanceListMap);
+    .then(quizInstnacesListMap => {
+      currentQuestionIndex = 0;
+      numCorrect = 0;
+      results = quizInstnacesListMap.results;
+      resultAnswer.innerHTML = "";
+      resetButton.style.display = "none";
+      setQuestion();
     });
+
 }
 
 function resultQuestion() {

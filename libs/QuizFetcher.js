@@ -15,7 +15,7 @@ class QuizFetcher {
             quizData.question,
             quizData.correct_answer,
             quizData.incorrect_answers
-          )
+          );
           return quiz;
         });
         return quizInstanceListMap;
