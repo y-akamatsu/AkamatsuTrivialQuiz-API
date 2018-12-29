@@ -7,6 +7,7 @@ const questionNumber = document.getElementById("question_number");
 
 let currentQuestionIndex = 0;
 let numCorrect = 0;
+let results = [];
 function setQuestion() {
   if (results.length <= currentQuestionIndex) {
     alert('check the answers');
@@ -63,12 +64,11 @@ function resetQuestion() {
     .then(quizInstnacesListMap => {
       currentQuestionIndex = 0;
       numCorrect = 0;
-      results = quizInstnacesListMap.results;
       resultAnswer.innerHTML = "";
+      results = quizInstnacesListMap.results;
       resetButton.style.display = "none";
       setQuestion();
     });
-
 }
 
 function resultQuestion() {
