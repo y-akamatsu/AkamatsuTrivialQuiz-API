@@ -17,6 +17,15 @@ app.get("/quiz", function (req, res) {
     });
 });
 
+
+app.get("/api/quiz", function (req, res) {
+  QuizFetcher
+    .fetch()
+    .then(quizInstanceListMap => {
+      res.json(quizInstanceListMap);
+    });
+});
+
 app.listen(3000, function () {
   console.log("Server has started!");
 });

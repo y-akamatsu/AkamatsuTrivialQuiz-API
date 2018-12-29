@@ -8,18 +8,17 @@ const questionNumber = document.getElementById("question_number");
 let currentQuestionIndex = 0;
 let numCorrect = 0;
 function setQuestion() {
-  if (window.Express.quizInstances.length <= currentQuestionIndex) {
+  if (results.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
     return;
   }
-  const questionData = window.Express.quizInstances[currentQuestionIndex];
+  const questionData = results[currentQuestionIndex];
   const answers = [];
   answers.push(questionData.correctAnswer);
   questionData.incorrectAnswers.forEach(incorrectAnswer => {
     answers.push(incorrectAnswer);
   });
-
   questionElement.innerHTML = questionData.question;
   answersElement.innerHTML = ''
   arrShuffle(answers).forEach(answer => {
@@ -47,7 +46,7 @@ function arrShuffle(answers) {
 
 function selectAnswer(event) {
   const answer = event.target.innerText;
-  const questionData = window.Express.quizInstances[currentQuestionIndex];
+  const questionData = results[currentQuestionIndex];
   if (answer === questionData.correctAnswer) {
     numCorrect++;
     alert('correct!');
@@ -59,15 +58,20 @@ function selectAnswer(event) {
 }
 
 function resetQuestion() {
-  currentQuestionIndex = 0;
-  numCorrect = 0;
-  resultAnswer.innerHTML = "";
-  resetButton.style.display = "none";
-  setQuestion();
+  fetch('http://localhost:3000/api/quiz')
+    .then(res => res.json())
+    .then(quizInstnacesListMap => {
+      currentQuestionIndex = 0;
+      numCorrect = 0;
+      resultAnswer.innerHTML = "";
+      results = quizInstnacesListMap;
+      resetButton.style.display = "none";
+      setQuestion();
+    });
 }
 
 function resultQuestion() {
-  resultAnswer.innerHTML = `you had ${numCorrect} correct answers of ${window.Express.quizInstances.length} questions`;
+  resultAnswer.innerHTML = `you had ${numCorrect} correct answers of ${results.length} questions`;
   resetButton.style.display = "block";
 }
 
