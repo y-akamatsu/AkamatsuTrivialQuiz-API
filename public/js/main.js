@@ -7,9 +7,7 @@ const questionNumber = document.getElementById("question_number");
 
 let currentQuestionIndex = 0;
 let numCorrect = 0;
-let results = [];
 function setQuestion() {
-  console.log(results);
   if (results.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
@@ -48,7 +46,7 @@ function arrShuffle(answers) {
 
 function selectAnswer(event) {
   const answer = event.target.innerText;
-  const questionData = window.Express.quizInstances[currentQuestionIndex];
+  const questionData = results[currentQuestionIndex];
   if (answer === questionData.correctAnswer) {
     numCorrect++;
     alert('correct!');
@@ -66,8 +64,9 @@ function resetQuestion() {
       currentQuestionIndex = 0;
       numCorrect = 0;
       resultAnswer.innerHTML = "";
-      results = quizInstnacesListMap.results;
+      results = quizInstnacesListMap;
       resetButton.style.display = "none";
+      console.log(quizInstnacesListMap);
       setQuestion();
     });
 }
