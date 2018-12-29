@@ -9,6 +9,7 @@ let currentQuestionIndex = 0;
 let numCorrect = 0;
 let results = [];
 function setQuestion() {
+  console.log(results);
   if (results.length <= currentQuestionIndex) {
     alert('check the answers');
     resultQuestion();
