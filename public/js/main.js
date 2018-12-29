@@ -66,7 +66,6 @@ function resetQuestion() {
       resultAnswer.innerHTML = "";
       results = quizInstnacesListMap;
       resetButton.style.display = "none";
-      console.log(quizInstnacesListMap);
       setQuestion();
     });
 }
