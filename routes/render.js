@@ -1,12 +1,12 @@
 const express = require('express');
-const router = express.Router();
+const routerRnder = express.Router();
 const QuizFetcher = require('../libs/QuizFetcher');
 
-router.get("/", function (req, res) {
+routerRnder.get("/", function (req, res) {
   res.render("index");
 });
 
-router.get("/quiz", function (req, res) {
+routerRnder.get("/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstances => {
@@ -14,4 +14,4 @@ router.get("/quiz", function (req, res) {
     });
 });
 
-module.exports = router;
+module.exports = routerRnder;
