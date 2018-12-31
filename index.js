@@ -1,16 +1,14 @@
 const express = require("express");
 const app = express();
-const routeRender = require('./routes/render');
-const routerApi = require('./routes/Api');
+const renderRoute = require('./routes/render');
+const apiRoute = require('./routes/api');
 
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-app.use("/", routeRender);
-app.use("/quiz", routeRender);
-
-app.get("/api/quiz", routerApi);
+app.use("/", renderRoute);
+app.get("/api/", apiRoute);
 
 app.listen(3000, function () {
   console.log("Server has started!");

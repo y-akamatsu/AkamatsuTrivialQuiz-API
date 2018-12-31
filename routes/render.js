@@ -1,17 +1,12 @@
 const express = require('express');
-const routerRnder = express.Router();
-const QuizFetcher = require('../libs/QuizFetcher');
+const renderRoute = express.Router();
 
-routerRnder.get("/", function (req, res) {
+renderRoute.get("/", function (req, res) {
   res.render("index");
 });
 
-routerRnder.get("/quiz", function (req, res) {
-  QuizFetcher
-    .fetch()
-    .then(quizInstances => {
-      res.render("quiz", { quizInstances });
-    });
+renderRoute.get("/quiz", function (req, res) {
+  res.render("quiz", );
 });
 
-module.exports = routerRnder;
+module.exports = renderRoute;

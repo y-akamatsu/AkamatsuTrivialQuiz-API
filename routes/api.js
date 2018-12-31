@@ -1,14 +1,15 @@
 const express = require('express');
-const routerApi = express.Router();
 const QuizFetcher = require('../libs/QuizFetcher');
+const apiRoute = express.Router();
 
-routerApi.get("/api/quiz", function (req, res) {
+
+apiRoute.get("/api/", function (req, res) {
   QuizFetcher
-    .fetch('http://localhost:3000/api/quiz')
+    .fetch()
     .then(quizInstanceListMap => {
       res.json(quizInstanceListMap);
     });
 });
 
 
-module.exports = routerApi;
+module.exports = apiRoute;
