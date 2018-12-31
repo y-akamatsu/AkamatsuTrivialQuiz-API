@@ -8,6 +8,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.use("/", renderRoute);
+app.use("/quiz", renderRoute);
 app.get("/api/", apiRoute);
 
 app.listen(3000, function () {

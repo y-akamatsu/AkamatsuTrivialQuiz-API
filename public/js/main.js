@@ -59,7 +59,7 @@ function selectAnswer(event) {
 }
 
 function resetQuestion() {
-  fetch('http://localhost:3000/api')
+  fetch('http://localhost:3000/api/quiz')
     .then(res => res.json())
     .then(quizInstnacesListMap => {
       currentQuestionIndex = 0;

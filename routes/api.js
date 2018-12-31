@@ -3,7 +3,7 @@ const QuizFetcher = require('../libs/QuizFetcher');
 const apiRoute = express.Router();
 
 
-apiRoute.get("/api/", function (req, res) {
+apiRoute.use('/api/quiz',function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstanceListMap => {
