@@ -8,8 +8,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.use("/", renderRouter);
-app.get("/quiz", renderRouter);
-app.get("/api/quiz", apiRouter);
+app.use("/api", apiRouter);
 
 app.listen(3000, function () {
   console.log("Server has started!");
