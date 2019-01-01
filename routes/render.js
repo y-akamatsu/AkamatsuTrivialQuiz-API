@@ -1,11 +1,12 @@
 const express = require('express');
-const renderRoute = express.Router();
+const renderRouter = express.Router();
 
-renderRoute.get("/", function (req, res) {
+renderRouter.get("/", function (req, res) {
   res.render("index");
 });
-renderRoute.get("/quiz", function (req, res) {
+
+renderRouter.get("/quiz", function (req, res) {
   res.render("quiz");
 });
 
-module.exports = renderRoute;
+module.exports = renderRouter;

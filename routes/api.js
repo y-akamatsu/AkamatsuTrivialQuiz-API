@@ -1,9 +1,9 @@
 const express = require('express');
 const QuizFetcher = require('../libs/QuizFetcher');
-const apiRoute = express.Router();
+const apiRouter = express.Router();
 
 
-apiRoute.use('/api/quiz',function (req, res) {
+apiRouter.get("/api/quiz", function (req, res) {
   QuizFetcher
     .fetch()
     .then(quizInstanceListMap => {
@@ -12,4 +12,4 @@ apiRoute.use('/api/quiz',function (req, res) {
 });
 
 
-module.exports = apiRoute;
+module.exports = apiRouter;
