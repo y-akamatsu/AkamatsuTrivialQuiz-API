@@ -7,6 +7,7 @@ const questionNumber = document.getElementById("question_number");
 
 let currentQuestionIndex = 0;
 let numCorrect = 0;
+let results = [];
 function setQuestion() {
   if (results.length <= currentQuestionIndex) {
     alert('check the answers');
