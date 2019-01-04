@@ -7,8 +7,8 @@ describe('GET/api/quiz', () => {
       .get('/api/quiz')
       .set('Accept', 'application/json')
       .expect(200)
-      .then(json => {
-        assert(json.body.length, 10);
-      })
+      .then(quizInstanceListMap => {
+        assert(quizInstanceListMap.results, 10);
+      });
   });
 });
