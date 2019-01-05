@@ -5,7 +5,6 @@ describe('GET/', () => {
   it('renderのルーティングの確認', (done) => {
     request(app)
       .get('/')
-      .set('Accept', 'application/json')
-      .expect(200, done)
+      .expect(200, done);
   });
 });
