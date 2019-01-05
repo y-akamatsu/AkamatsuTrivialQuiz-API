@@ -23,8 +23,9 @@
     "node-fetch": "^2.2.1"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.5",
     "power-assert": "^1.6.1",
-    "mocha": "^5.2.0"
+    "supertest": "^3.3.0"
   }
 }

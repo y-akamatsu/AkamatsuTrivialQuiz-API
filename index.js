@@ -13,3 +13,5 @@ app.use("/api", apiRouter);
 app.listen(3000, function () {
   console.log("Server has started!");
 });
+
+module.exports = app;
