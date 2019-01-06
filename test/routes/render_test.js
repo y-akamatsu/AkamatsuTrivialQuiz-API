@@ -1,19 +1,21 @@
 const request = require('supertest');
 const app = require('../../index');
 
-const appRequest = request(app);
+function appRequest() {
+  request(app)
+    .get()
+    .expect(200, done)
+};
 
 describe('GET/', () => {
-  it('indexファイルのrenderのルーティングの確認', (done) => {
-    appRequest
-      .get('/')
-      .expect(200, done);
+  it('indexファイルのrenderのルーティングの確認', () => {
+    appRequest()
   });
 });
 
 describe('GET/quiz', () => {
   it('quizファイルのrenderのルーティングの確認', (done) => {
-    appRequest
+    request(app)
       .get('/quiz')
       .expect(200, done);
   });
