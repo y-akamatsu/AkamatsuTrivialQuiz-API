@@ -2,9 +2,17 @@ const request = require('supertest');
 const app = require('../../index');
 
 describe('GET/', () => {
-  it('renderのルーティングの確認', (done) => {
+  it('indexファイルのrenderのルーティングの確認', (done) => {
     request(app)
-      .get('/', '/quiz')
+      .get('/')
+      .expect(200, done);
+  });
+});
+
+describe('GET/quiz', () => {
+  it('quizファイルのrenderのルーティングの確認', (done) => {
+    request(app)
+      .get('/quiz')
       .expect(200, done);
   });
 });
