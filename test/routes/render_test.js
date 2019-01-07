@@ -1,22 +1,20 @@
 const request = require('supertest');
 const app = require('../../index');
 
-function appRequest() {
+function runRequestTest(app, URL, done) {
   request(app)
-    .get()
+    .get(URL)
     .expect(200, done)
-};
+}
 
-describe('GET/', () => {
-  it('indexファイルのrenderのルーティングの確認', () => {
-    appRequest()
+describe('GET /', () => {
+  it('indexファイルのrenderのルーティングの確認', (done) => {
+    runRequestTest(app, '/', done)
   });
 });
 
-describe('GET/quiz', () => {
+describe('GET /quiz', () => {
   it('quizファイルのrenderのルーティングの確認', (done) => {
-    request(app)
-      .get('/quiz')
-      .expect(200, done);
+    runRequestTest(app, '/quiz', done)
   });
 });
