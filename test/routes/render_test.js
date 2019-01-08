@@ -10,14 +10,12 @@ function runRequestTest(url) {
 describe('GET /', () => {
   it('indexファイルのrenderのルーティングの確認', () => {
     return runRequestTest('/')
-    .then(app)
   });
 });
 
 describe('GET /quiz', () => {
   it('quizファイルのrenderのルーティングの確認', () => {
     return runRequestTest('/quiz')
-    .then(app)
   });
 });
 
