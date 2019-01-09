@@ -1,5 +1,6 @@
 const request = require('supertest');
 const app = require('../../index');
+const assert = require('power-assert');
 
 function runRequestTest(url) {
   request(app)
@@ -9,7 +10,12 @@ function runRequestTest(url) {
 
 describe('GET /', () => {
   it('indexファイルのrenderのルーティングの確認', () => {
-    return runRequestTest('/')
+    return request(app)
+      .get('/')
+      .expect(200)
+      .then(response => {
+        assert(response, '/');
+      });
   });
 });
 
