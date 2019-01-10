@@ -1,21 +1,17 @@
 const request = require('supertest');
 const app = require('../../index');
-const assert = require('power-assert');
 
 function runRequestTest(url) {
+  return Promise.resolve(
   request(app)
-    .get(url)
-    .expect(200);
+  .get(url)
+  .expect(200)
+  );
 }
 
 describe('GET /', () => {
   it('indexファイルのrenderのルーティングの確認', () => {
-    return request(app)
-      .get('/')
-      .expect(200)
-      .then(response => {
-        assert(response, '/');
-      });
+    return runRequestTest('/')
   });
 });
 
